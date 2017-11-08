@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import pigpio
 import time
 
-ENABLE = 6
-DIR = 5
+GPIO_ENABLE_PIN = 6
+GPIO_DIRECTION_PIN = 5
 
 ON = GPIO.LOW
 OFF = GPIO.HIGH
@@ -11,30 +11,32 @@ OFF = GPIO.HIGH
 LEFT = GPIO.LOW
 RIGHT = GPIO.HIGH
 
+MOVEMENT_TIME = 10.0
+BREAK_TIME = 1.0
+
 # initialize GPIO
 GPIO.cleanup()
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.OUT) # PWM
-GPIO.setup(DIR, GPIO.OUT)
-GPIO.setup(ENABLE, GPIO.OUT)
+GPIO.setup(GPIO_PWM, GPIO.OUT)
+GPIO.setup(GPIO_DIRECTION_PIN, GPIO.OUT)
+GPIO.setup(GPIO_ENABLE_PIN, GPIO.OUT)
 
 try:
-    GPIO.output(DIR, RIGHT)
-    GPIO.output(ENABLE, ON)
+    GPIO.output(GPIO_DIRECTION_PIN, RIGHT)
+    GPIO.output(GPIO_ENABLE_PIN, ON)
 
-    time.sleep(10.0)
+    time.sleep(MOVEMENT_TIME)
 
-    #GPIO.output(5, GPIO.HIGH)
-    GPIO.output(ENABLE, OFF)
+    GPIO.output(GPIO_ENABLE_PIN, OFF)
 
-    time.sleep(1.0)
+    time.sleep(BREAK_TIME)
 
-    GPIO.output(DIR, LEFT)
-    GPIO.output(ENABLE, ON)
+    GPIO.output(GPIO_DIRECTION_PIN, LEFT)
+    GPIO.output(GPIO_ENABLE_PIN, ON)
 
-    time.sleep(10.0)
+    time.sleep(MOVEMENT_TIME)
 
-    GPIO.output(ENABLE, OFF)
+    GPIO.output(GPIO_ENABLE_PIN, OFF)
 except (KeyboardInterrupt, SystemExit):
-    GPIO.output(6, GPIO.HIGH)
+    GPIO.output(GPIO_ENABLE_PIN, OFF)

@@ -11,28 +11,40 @@
 \begin{document}
 
 \begin{center}
-	\LARGE{Biometrické systémy}\\
-	\Large{Snímání 2D geometrie ruky řádkovou kamerou}
+	\LARGE{Biometric Systems}\\
+	\Large{Capturing of 2D Hand Geometry With Line Camera}
 	\vspace{0.5cm}
 
-	Petr Stehlík, Marek Beňo, Richard Wolfert
+    \begin{centering}
+    \small{
+        Petr Stehlík <xstehl14@stud.fit.vutbr.cz>\\
+        Marek Beňo <xbenom01@stud.fit.vutbr.cz>\\
+        Richard Wolfert <xwolfe00@stud.fit.vutbr.cz>\\
+        }
+    \end{centering}
 
 	\vspace{0.2cm}
 
 \end{center}
 
-\section{Cieľ projektu}
-Cieľom tohoto projektu je vytvoriť mechanické zariadenie a pripraviť softvérové riešenie umožňujúce snímať 2D scan ruky. Scan ruky je zaobstaraný pomocou riadkovej kamery mechanicky pripevnenej na pohybujúci sa vozík, ktorý sa pohybuje ponad snímanú oblasť. Zosnímaný scan ruky je následné verifikovaný proti existujúcej databázi snímkov pomocou implementovaného verifikačného algoritmu.
+\section{Assignment}
+The task in hand is to assemble a mechanical device and create software for acquiring 2D hand geometry via a line camera. A solution for mounting the camera and hand placement should be proposed in the following sections for best geometry acquisition and image reconstruction.
 
-\section{Konstrukce zařízení pro snímání 2D geometrie ruky}
-% TODO: svetlo?
-Zariadenie spočíva z masívnej konštrukcie, kolajnice s vozíkom, zdrojov napájania, ovládacích prvkov a kamery. 
+The document is structured as follows: in section \ref{sec:hw} we describe the hardware part of the project, what hardware was used and we propose a solution for camera mount and hand placement. In section \ref{sec:sw} the software needed for camera control and image reconstruction is presented. In section \ref{sec:db} we detail the created hand geometry database and how we acquired it and in last two sections \ref{sec:res} and \ref{sec:sum} we sum up the proposed hardware and software solution and what further work can be done.
+
+\section{Hardware}
+\label{sec:hw}
+\subsection{Used Hardware}
+\subsection{Hardware Setup}
 % TODO: čo bolo treba vytvoriť na sprovoznenie
 % zapojenie arduino, raspberry
 % popísať prečo je potreba arduino a púrečo je pi zlé (GPIO 3.3V vs 5V)
-% schema konstrukcie / foto 
+% schema konstrukcie / foto
 
-\subsection{Ovládanie pohybu vozíka}
+\subsection{Camera Mount}
+\subsection{Hand Placement}
+
+\subsection{Rail Control}
 % TODO: nastavenie kontroleru - popisat problemy zo sekanim
 % ako sme dospely k poctu sekund tam a s5 / pripadne vypocet vzorcom
 Pohyb vozíka po koľajnici spočíva z jednosmerného pohybu stálou rýchlosťou vpravo, zastavení a opačného pohybu do pôvodnej pozície. \\
@@ -43,21 +55,31 @@ Pre pohyb vozíka je potrebná kontrola ovládacej jednotky motora, ktorý ovlá
     \item PIN  6 - povolenie pohybu
 \end{itemize}
 
-\subsection{Ovládanie kamery}
+
+\subsection{Light Control}
+\subsection{Camera Control}
 %TODO: ako je ovladana kamera a prečo je to takto
 % aka je vykonnost kamery a ake nastavenia prebehli
 % ake je nastavenie osvetlenia -> pripadne samostatna sekcia o osvetleni
 
-\section{Implementace algoritmu pre rekonštrukciu obrazu}
+
+\section{Software}
+\label{sec:sw}
+\subsection{Used Software}
+\subsection{Acquiring Images}
+\subsection{Detecting Geometry}
 % TODO: aky algoritmus sme zvolili v čom sme to implementovali a prečo
 
-\section{Databáze snímku}
-% TODO kams a ukladaju snimky, ako sa k nim pristupuje
+\section{Hand Geometry Database}
+\label{sec:db}
+% TODO kam sa ukladaju snimky, ako sa k nim pristupuje
 % ako dlho trva scan snimku a aka je kvalita snimkov
 % preco sa ukladaju tam a ako je mozno dosiahnut rozsirenie DB
 
-\section{Algoritmus verifikace snímku}
+\section{Achieved Results}
+\label{sec:res}
 
-\section{Záver}
+\section{Summary}
+\label{sec:sum}
 
 \end{document}

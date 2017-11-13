@@ -1,0 +1,29 @@
+\section{Hardware}
+\label{sec:hw}
+\subsection{Used Hardware}
+\subsection{Hardware Setup}
+% TODO: čo bolo treba vytvoriť na sprovoznenie
+% zapojenie arduino, raspberry
+% popísať prečo je potreba arduino a púrečo je pi zlé (GPIO 3.3V vs 5V)
+% schema konstrukcie / foto
+
+\subsection{Camera Mount}
+\subsection{Hand Placement}
+
+\subsection{Rail Control}
+% TODO: nastavenie kontroleru - popisat problemy zo sekanim
+% ako sme dospely k poctu sekund tam a s5 / pripadne vypocet vzorcom
+Pohyb vozíka po koľajnici spočíva z jednosmerného pohybu stálou rýchlosťou vpravo, zastavení a opačného pohybu do pôvodnej pozície. \\
+Pre pohyb vozíka je potrebná kontrola ovládacej jednotky motora, ktorý ovláda pohyb vozíka po koľajnici. Tento motor je ovládaný prostredníctvom Arduino UNO, ktoré prostredníctvom GPIO povoľuje pohyb a nastavuje smer pohybu. Pre ovládanie tejto fukcionality sa využíva ako kontrolér Raspberry Pi 3. Na raspberry beží program ktorý používa python program pre ovládanie GPIO pinov ktoré sú pripojené ku Arduino. Konkrétne sa využívajú výstupné GPIO piny:
+\begin{itemize}
+    \item PIN 18 - PWM
+    \item PIN  5 - smer pohybu
+    \item PIN  6 - povolenie pohybu
+\end{itemize}
+
+
+\subsection{Light Control}
+\subsection{Camera Control}
+%TODO: ako je ovladana kamera a prečo je to takto
+% aka je vykonnost kamery a ake nastavenia prebehli
+% ake je nastavenie osvetlenia -> pripadne samostatna sekcia o osvetleni

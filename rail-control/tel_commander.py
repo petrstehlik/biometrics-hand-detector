@@ -25,12 +25,7 @@ def cmd(command):
     tn.write(STX + command + ETX + '\r\n')
 
 if __name__ == "__main__":
-    #tn.read_some()
-    cmd("IY E 1200")
-    cmd("LC 1")
-    time.sleep(10.0)
-    cmd("LC 0")
-
-    #while True:
-    #    comm = raw_input("Command: ")
-    #    cmd(comm)
+    # Send commands via telnet in interactive manner but don't read anything
+    while True:
+        comm = raw_input("Command: ")
+        cmd(comm)

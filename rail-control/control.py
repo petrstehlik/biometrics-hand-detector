@@ -20,7 +20,6 @@ BREAK_TIME = 1.0
 GPIO.cleanup()
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(GPIO_PWM, GPIO.OUT)
 GPIO.setup(GPIO_DIRECTION_PIN, GPIO.OUT)
 GPIO.setup(GPIO_ENABLE_PIN, GPIO.OUT)
 

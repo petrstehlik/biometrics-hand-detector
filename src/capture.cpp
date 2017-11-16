@@ -1,3 +1,5 @@
+#include <string>
+
 #include <pylon/PylonIncludes.h>
 #include <pylon/gige/BaslerGigEInstantCamera.h>
 
@@ -8,8 +10,8 @@
 static const size_t COUNT_OF_IMAGES = 32;
 static const int TIMEOUT_MS = 1000; // TODO not used currently
 
-static const int ACQUISITION_RATE = 1000;
-static const int EXPOSURE_TIME = 1000;
+static const int DEFAULT_ACQUISITION_RATE = 1000;
+static const int DEFAULT_EXPOSURE_TIME = 1000;
 
 static const int ROWS = 256;
 static const int COLS = 6144;
@@ -18,8 +20,20 @@ using namespace Pylon;
 using namespace std;
 using namespace cv;
 
+/**
+ * Usage:
+ * $./capture <exposureTime> <acquisitionRate>
+ */
 int main(int argc, char* argv[])
 {
+	int acquisition_rate = DEFAULT_ACQUISITION_RATE;
+	int exposure_time = DEFAULT_EXPOSURE_TIME;
+
+	if (argc > 2)
+		exposure_time = stoi(string(argv[1]));
+	if (argc > 3)
+		acquisition_rate = stoi(string(argv[2]));
+
 	PylonInitialize();
 
 	try {
@@ -33,8 +47,10 @@ int main(int argc, char* argv[])
 		camera.Width.SetValue(COLS);
 		camera.Height.SetValue(ROWS);
 
-		camera.ExposureTimeRaw.SetValue(EXPOSURE_TIME);
-		camera.AcquisitionLineRateAbs.SetValue(ACQUISITION_RATE);
+		cout << "Setting exposure time to " << to_string(exposure_time) << endl;
+		camera.ExposureTimeRaw.SetValue(exposure_time);
+		cout << "Setting Acquisition line rate to " << to_string(acquisition_rate) << endl;
+		camera.AcquisitionLineRateAbs.SetValue(acquisition_rate);
 
 		camera.StartGrabbing(COUNT_OF_IMAGES);
 

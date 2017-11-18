@@ -1,6 +1,27 @@
 \section{Software}
+Hardware solution for proposed device consists from three main parts: moving slide on rail, camera and light.
+Each of these parts needs to be controlled in order to scan images of hand geometry.
+All of the software as well as webserver storing results runs on control module - Raspberry Pi.
+
 \label{sec:sw}
 \subsection{Used Software}
+Software is implemented in python language for its ease of use and comprehension. With all necessary software running
+on Raspbery Pi minimum setup is necessary.
+
+Slide platform is controlled through serial bus by writing to GPIO pins direction and enable signals.
+Light is controlled via its XLC4 controller through RS232 interface.
+Light status is controlled through commands \texttt{LC A 1} and \texttt{LC A 0} for turning it on/off respectively.
+\todo[inline]{camera control, skladanie obrazkov}
+\todo[inline]{referencie na zdrojove kody}
+\todo[inline]{zoznam dependencies, instalacia}
+
 \subsection{Acquiring Images}
-\subsection{Detecting Geometry}
-% TODO: aky algoritmus sme zvolili v čom sme to implementovali a prečo
+To acquire images simple setup is necessary. Assembly and connection of all hardware parts is necessary with individual
+parts connected to Raspberry Pi control module according to schematics. Raspberry control module needs to be setup and
+software installed.
+When Raspberry is connected to internet image acquisition can be done through remote access without need for whole desktop.
+Firstly hand is placed on designated platform and then software is run. Firstly lights are switched on, then camera starts
+recording and slide moves along the rail till it completes the scan. After scan slide moves to initial position and device
+is immediately ready for another scan.
+
+

@@ -6,6 +6,8 @@
 \usepackage{url}
 \usepackage{graphicx}
 \usepackage{pdfpages}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
 \graphicspath{ {figs/} }
 
 \begin{document}
@@ -28,9 +30,13 @@
 \end{center}
 
 \section{Assignment}
-The task in hand is to assemble a mechanical device and create software for acquiring 2D hand geometry via a line camera. A solution for mounting the camera and hand placement should be proposed in the following sections for best geometry acquisition and image reconstruction.
+The aim of the project is to assemble a mechanical device and create software for acquiring 2D hand geometry via a line camera.
+A solution for camera mount and hand placement is proposed in the following sections for best geometry acquisition and image reconstruction.
 
-The document is structured as follows: in section \ref{sec:hw} we describe the hardware part of the project, what hardware was used and we propose a solution for camera mount and hand placement. In section \ref{sec:sw} the software needed for camera control and image reconstruction is presented. In section \ref{sec:db} we detail the created hand geometry database and how we acquired it and in last two sections \ref{sec:res} and \ref{sec:sum} we sum up the proposed hardware and software solution and what further work can be done.
+The document is structured as follows: in section \ref{sec:hw} we describe the hardware part of the project, what hardware was used
+and we describe a solution for camera mount and hand placement. In section \ref{sec:sw} we present the software needed for camera control and image reconstruction.
+In section \ref{sec:db} we detail created database of hand geometry data and method of acquisition. In last two sections \ref{sec:res}
+and \ref{sec:sum} we sum up hardware and software solution and propose further improvements on our solution.
 
 \input{hardware}
 
@@ -41,8 +47,24 @@ The document is structured as follows: in section \ref{sec:hw} we describe the h
 
 \section{Achieved Results}
 \label{sec:res}
+Solution described in this report was assembled and implemented with excellent results. Integration of all hardware parts and software control results
+in images being scanned very quickly in great resolution. During testing it was proved to be effective to not only scan images
+of hand geometry but also fingerprints which leads to general purpose sensoric solution for capturing multiple biometric data. Furthermore,
+solution is able to function with very limited resources necessary and provides instant access to scanned images.
+
+\todo[inline]{rychlost, kvalita, mnostvo snimkov}
+\begin{figure}[ht!]
+    \label{fig:hand-detail}
+    \centering
+    \includegraphics[width=0.5\linewidth]{hand-detail.jpg}
+    \caption{Dorsal detail of scanned hand}
+\end{figure}
 
 \section{Summary}
 \label{sec:sum}
-
+\todo[inline]{preciznost HW, vylepsenie - antivibracna podlozka, 3d geometria, distancne stlpky a palcement ruky}
+As previously dicussed in \ref{sec:res} proposed solution si able to quickly and accurately provide 2D hand geometry in great resolution. Solution was
+used to create initial image database with emphasisis on ease of use and precision so this database can be quickly expanded.
+Solution proved to be effective to not only capture 2D hand geometry but also capture other biometric data such as fingertip scans. This results in
+ability to make multiple models from data and design efficient classification and identification algorhitms.
 \end{document}

@@ -80,6 +80,13 @@ To acquire high quality images of hand it is necessary to have proper light sour
 
 LED-Control unit is controlled through the telnet interface via which one can set light intensity, set channels on or off and query various metrics and information. The LED-Control unit has a default IP address \texttt{192.168.87.234} and default credentials with username \texttt{admin} and password \texttt{chromasens}. We provide a simple interface for interacting with the control unit via a script \texttt{rail-control/tel\_commander.py}.
 
+\begin{figure}[ht!]
+    \label{fig:light-mount}
+    \centering
+    \includegraphics[width=0.5\linewidth]{light-mount.jpg}
+    \caption{light mount setup}
+\end{figure}
+
 \subsection{Hand Placement}
 The hand is placed in the centre of the framework on a prepared platform which aligns and spreads the fingers in order to
 capture the same hand geometry during different scans. The hand is stable during image capture procedure which minimizes human error.
@@ -90,7 +97,6 @@ Figure \ref{fig:hand-placement} shows placement of hand during scan.
     \centering
     \includegraphics[width=0.8\linewidth]{hand-top.jpg}
     \caption{Hand placement during scan}
-    \todo[inline]{zmenit/orezat foto}
 \end{figure}
 
 \subsection{Control}

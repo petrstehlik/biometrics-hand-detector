@@ -8,7 +8,7 @@
 #include <opencv2/video/video.hpp>
 
 static const size_t COUNT_OF_IMAGES = 20;
-static const int TIMEOUT_MS = 1000; // TODO not used currently
+static const int TIMEOUT_MS = 1000;
 
 static const int DEFAULT_ACQUISITION_RATE = 1000;
 static const int DEFAULT_EXPOSURE_TIME = 1000;

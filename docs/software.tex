@@ -7,13 +7,10 @@ All of the software as well as webserver storing results runs on control module 
 \subsection{Used Software}
 Software is implemented in python language for its ease of use and comprehension. With all necessary software running
 on Raspbery Pi minimum setup is necessary.
-
-Slide platform is controlled through serial bus by writing to GPIO pins direction and enable signals.
-Light is controlled via its XLC4 controller through RS232 interface.
-Light status is controlled through commands \texttt{LC A 1} and \texttt{LC A 0} for turning it on/off respectively.
-\todo[inline]{camera control, skladanie obrazkov}
-\todo[inline]{referencie na zdrojove kody}
-\todo[inline]{zoznam dependencies, instalacia}
+When acessing system through Raspberry Pi control module user script \texttt{rail-control/capture.py} handles all
+neccessary communication with hardware parts while script \texttt{src/capture.py} handles image capture using
+basler library and image reconstruction using opencv2 library. When testing these \texttt{C++} libraries proved to be more
+reliable then their python counterparts and so they were interfaced with rest of the codebase.
 
 \subsection{Acquiring Images}
 To acquire images simple setup is necessary. Assembly and connection of all hardware parts is necessary with individual

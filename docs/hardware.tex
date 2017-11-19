@@ -68,7 +68,7 @@ The Arduino UNO itself is controlled via the serial interface where it actively 
 where the first characted specifies the direction of the movement. \texttt{L} stands for leftward movement which moves the slide towards the base of the rail. \texttt{R} standing for rightward movement move the slide away from the stepper motor.
 
 After the direction specification follows the duration stated in miliseconds of the movement. One milisecond of movement equals to XX mm as calculated by following formula:
-\todo[inline]{Vypocet rychlosti v mm/ms}
+% TODO : Vypocet rychlosti v mm/ms
 
 The Arduino UNO is connected to the Raspberry Pi 3 via USB which serves as the serial port and as power source at once. The serial interface is set to the baud rate of 115 200 baud/s.
 

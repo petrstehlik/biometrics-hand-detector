@@ -75,7 +75,7 @@ The Raspberry Pi 3 then sends messages in format specified in \ref{sec:serial} a
 \subsection{Light}
 To acquire high quality images of hand it is necessary to have proper light source. The line light chosen for our assignment is Chromasens Corona II type C with LED-control unit XLC4-1 which can produce lightning intesity up to 300 000 lux. The light is mounted directly below the slide platform angled 10 $^{\circ}$ towards camera's line of sight.
 
-LED-Control unit is controlled through the telnet interface via which one can set light intensity, set channels on or off and query various metrics and information. The LED-Control unit has a default IP address \texttt{192.168.87.234} and default credentials with username \texttt{admin} and password \texttt{chromasens}. We provide a simple interface for interacting with the control unit via a script \texttt{rail-control/tel\_commander.py}.
+LED-Control unit is controlled through the telnet interface via which one can set light intensity, set channels on or off and query various metrics and information. The LED-Control unit has a default IP address \texttt{192.168.87.234} and default credentials with username \texttt{admin} and password \texttt{chromasens}. We provide a simple interface for interacting with the control unit via a script \texttt{tel\_commander.py}.
 
 \begin{figure}[ht!]
     \label{fig:light-mount}

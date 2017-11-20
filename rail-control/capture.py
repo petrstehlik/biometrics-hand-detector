@@ -1,9 +1,20 @@
+#!/usb/bin/env python
+"""
+BIO: Capture hand image via a connected line camera
+"""
 import tel_commander as light
 import serial as serial
 import time
 import logging
 import shutil
 import subprocess
+import os
+import sys
+
+if os.geteuid() != 0:
+    # Check for root privileges
+    sys.write(STDERR, "Capturing requires root privileges.")
+    sys.exit(1)
 
 logging.basicConfig(level = logging.DEBUG)
 log = logging.getLogger("CAPTURE")

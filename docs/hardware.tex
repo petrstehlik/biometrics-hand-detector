@@ -15,14 +15,6 @@ Control module consists of Raspberry Pi 3 and Arduino UNO running software neces
     \caption{Schematic of hardware setup.}
 \end{figure}
 
-%\begin{figure}[ht]
-%    \label{fig:overview}
-%    \centering
-%    \includegraphics[width=0.75\linewidth]{overview.jpg}
-%    \caption{Hardware Setup.}
-%    \todo[inline]{nova foto}
-%\end{figure}
-
 \subsubsection*{Camera}
 The selected camera is Basler raL6144-16gm. This camera provides us with the resolution of 6144 $\times$ 1 pixels with line rate up to 17 kHz and is controlled via ethernet connection and Pylon SDK.
 Captured pixels are in 8-bit grayscale color depth. The camera's shutter can be operated either via hardware or software trigger\footnote{The camera also enables "free-run mode".}.
@@ -67,8 +59,14 @@ The Arduino UNO itself is controlled via the serial interface where it actively 
 \end{verbatim}
 where the first characted specifies the direction of the movement. \texttt{L} stands for leftward movement which moves the slide towards the base of the rail. \texttt{R} standing for rightward movement move the slide away from the stepper motor.
 
-After the direction specification follows the duration stated in miliseconds of the movement. One milisecond of movement equals to XX mm as calculated by following formula:
-% TODO : Vypocet rychlosti v mm/ms
+After the direction specification calculation of duration  stated in miliseconds of the movement follows. One milisecond of movement equals to 195.3125 mm as calculated by following formula:\\
+\begin{centering}
+    $v = \frac{PWM * duration [s]}{PPR} * Movement [mm]$ \\
+\end{centering}
+where PPR denotes pulses per revolution. After substitution: \\
+\begin{centering}
+    $v = \frac{62500 * 10}{12800} * 4 = 195.3125 mm$ \\
+\end{centering}
 
 The Arduino UNO is connected to the Raspberry Pi 3 via USB which serves as the serial port and as power source at once. The serial interface is set to the baud rate of 115 200 baud/s.
 

@@ -25,14 +25,14 @@ Control module consists of Raspberry Pi 3 and Arduino UNO running software neces
 
 \subsubsection*{Camera}
 The selected camera is Basler raL6144-16gm. This camera provides us with the resolution of 6144 $\times$ 1 pixels with line rate up to 17 kHz and is controlled via ethernet connection and Pylon SDK.
-The captured image is in greyscale colors. The camera's shutter can be operated either via hardware or software trigger\footnote{The camera also enables "free-run mode".}.
+Captured pixels are in 8-bit grayscale color depth. The camera's shutter can be operated either via hardware or software trigger\footnote{The camera also enables "free-run mode".}.
 
 The camera is equipped with AF Nikon 50 mm f1.8D lens. The lens suits our needs for multiple reasons:
 It is relatively inexpensive, simple to use and has good depth-of-field control with aperture ranging from f/1.8 up to f/22.
 
 \subsubsection*{Camera Mount}
 In order to acquire images with line camera either scanned object or camera have to move in smooth direct line to cover the whole scanned area.
-We decided to move with the camera because in order to minimize errors during scanning. The scanned hand is placed on stable platform and with only camera mount moving,
+We decided to move with the camera in order to minimize errors during scanning. The scanned hand is placed on stable platform and with only camera mount moving,
 human error is minimized and user experience is improved.
 
 Slide moving along the rail houses the platform where the camera is mounted. This platform is facing down with camera and light mounted as seen in figure \ref{fig:camera-mount}.
@@ -99,5 +99,7 @@ Figure \ref{fig:hand-placement} shows placement of hand during scan.
 \end{figure}
 
 \subsection{Control}
-The whole system is connected via ethernet with a router which is setup up to assign IPs from \texttt{192.168.87.1/28} because of the default configuration of the LED-control unit. User enters the system through the Raspberry Pi 3 and issues commands on it with a prepared script \texttt{rail-control/capture.py}.
+The whole system is connected using standard ethernet cables using switch and a DHCP server, which is setup up to assign IP addresses from 
+\texttt{192.168.87.0/28} because of the default configuration of the LED-control unit. User enters the system through the Raspberry Pi 3 and issues
+commands on it with a prepared script \texttt{rail-control/capture.py}.
 

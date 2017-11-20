@@ -5,20 +5,19 @@ All of the software as well as webserver storing results runs on control module 
 
 \label{sec:sw}
 \subsection{Used Software}
-Software is implemented in python language for its ease of use and comprehension. With all necessary software running
+Control software is implemented in python language for its ease of use and comprehension. With all necessary software running
 on Raspbery Pi minimum setup is necessary.
 When acessing system through Raspberry Pi control module user script \texttt{rail-control/capture.py} handles all
-neccessary communication with hardware parts while script \texttt{src/capture.py} handles image capture using
-basler library and image reconstruction using opencv2 library. When testing these \texttt{C++} libraries proved to be more
+neccessary communication with hardware parts while \texttt{src/capture} handles image capture using
+basler pylon 5 library and image reconstruction using OpenCV library. During testing, these \texttt{C++} libraries proved to be more
 reliable then their python counterparts and so they were interfaced with rest of the codebase.
 
 \subsection{Acquiring Images}
 To acquire images simple setup is necessary. Assembly and connection of all hardware parts is necessary with individual
 parts connected to Raspberry Pi control module according to schematics. Raspberry control module needs to be setup and
 software installed.
-When Raspberry is connected to internet image acquisition can be done through remote access without need for whole desktop.
-Firstly hand is placed on designated platform and then software is run. Firstly lights are switched on, then camera starts
-recording and slide moves along the rail till it completes the scan. After scan slide moves to initial position and device
-is immediately ready for another scan.
-
-
+When Raspberry is connected to internet image acquisition can be done through remote access. Initially, hand should be placed on
+designated platform and then software is run. Firstly lights are switched on, then camera starts
+recording and slide moves along the rail till it completes the scan. Image is then processed and saved in non-volatile memory using ".jpg" format.
+The light is then turned off, which indicates that image was successfully processed and saved. Finally, scan slide moves to initial position and
+device is immediately ready for another scan.
